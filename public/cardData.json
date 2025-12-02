@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Premium Users",
+    "bigValue": "12,458",
+    "midValue": "",
+    "smallValue": "+3 this month",
+    "image": "https://i.postimg.cc/rmQBTLbw/Vector.png"
+  },
+  {
+    "id": 2,
+    "title": "Active Growth",
+    "bigValue": "2.5M",
+    "midValue": "",
+    "smallValue": "+126k today",
+    "image": "https://i.postimg.cc/rmQBTLbw/Vector.png"
+  },
+  {
+    "id": 3,
+    "title": "Normal Users",
+    "bigValue": "8.4M",
+    "midValue": "",
+    "smallValue": "",
+    "image": "https://i.postimg.cc/G2qWR1N3/streamline-plump-wallet.png"
+  },
+  {
+    "id": 4,
+    "title": "Premium Users",
+    "bigValue": " ৳12.8M",
+    "midValue": "",
+    "smallValue": "",
+    "image": "https://i.postimg.cc/BnjQwmjs/solar-crown-broken.png"
+  }
+
+]
