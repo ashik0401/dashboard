@@ -22,7 +22,7 @@ const DashboardCard = () => {
         return (
           <div
             key={item.id}
-            className="bg-white rounded-xl  relative overflow-hidden flex justify-between shadow-md border border-white/35 md:w-[288px] md:h-36 px-6.5 py-4.5 pb-4"
+            className="bg-white rounded-xl  relative overflow-hidden flex justify-between shadow-sm border border-white/35 md:w-[288px] md:h-36 px-6.5 py-4.5 pb-4"
           >
             <div className="space-y-2">
               <h2 className=" font-medium sm:text-md text-sm">{item.title}</h2>

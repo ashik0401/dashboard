@@ -63,6 +63,7 @@ const UsersTable = () => {
         fontWeight: "500",
         color: "white",
         display: "flex",
+        width:"60px",
         alignItems: "center",
         gap: "4px",
         background: `linear-gradient(to bottom, ${lightColor}, ${color})`,
@@ -112,7 +113,7 @@ const UsersTable = () => {
               <th className="pb-2 px-9">User ID</th>
               <th className="pb-2 px-2">Name</th>
               <th className="pb-2 px-2">Type</th>
-              <th className="pb-2 px-2 text-center">Level</th>
+              <th className="pb-2 px-2 ">Level</th>
               <th className="pb-2 px-2">Diamonds</th>
               <th className="pb-2 px-2">Beans</th>
               <th className="pb-2 px-2">Location</th>
@@ -128,7 +129,7 @@ const UsersTable = () => {
                 <td className="px-2 py-4">
                   <span className={getTypeStyle(u.type)}>{u.type}</span>
                 </td>
-                <td className="py-4 text-center text-[10px] font-medium">
+                <td className="py-4  text-[10px] font-medium">
                   <span style={getLevelStyle(u.level)}>
                     {u.level >= 12 && u.rankImage && (
                       <img src={u.rankImage} alt="rank" className="w-4 h-4 rounded-full" />
