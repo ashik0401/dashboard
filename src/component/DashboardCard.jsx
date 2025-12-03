@@ -10,26 +10,27 @@ const DashboardCard = () => {
   }, []);
 
   return (
-    <div className="p-6 grid lg:grid-cols-4 grid-cols-2 gap-6">
-{cards.map((item, index) => {
-  let gradient = "linear-gradient(to bottom, #9662FF, #A1DAF1)";
-  if (index === 2) gradient = "linear-gradient(to bottom right, #D14CE1, #66CFFF)";
-  if (index === 3) gradient = "linear-gradient(to bottom right, #2A4FC0, #7FC1C7)";
+   <div className="md:flex gap-2 md:flex-wrap justify-between grid grid-cols-2">
+  {cards.map((item, index) => {
+    let gradient = "linear-gradient(to bottom, #cdacf8, #d6fdfd)";
+    if (index === 2)
+      gradient = "linear-gradient(to bottom right, #e17cec, #a1e1ff)";
+    if (index === 3)
+      gradient = "linear-gradient(to bottom right, #7FC1C7 ,#7c96e7 )";
 
 
         return (
           <div
             key={item.id}
-            className="bg-white  rounded-xl p-6 relative overflow-hidden flex justify-between "
+            className="bg-white rounded-xl  relative overflow-hidden flex justify-between shadow-md border border-white/35 md:w-[288px] md:h-36 px-6.5 py-4.5 pb-4"
           >
-            <div>
-              <h2 className="text-gray-600 sm:text-lg text-sm">{item.title}</h2>
+            <div className="space-y-2">
+              <h2 className=" font-medium sm:text-md text-sm">{item.title}</h2>
               <h1 className="sm:text-3xl  font-bold">{item.bigValue}</h1>
-              <p className="text-gray-800 sm:text-xl text-sm">{item.midValue}</p>
               <p className="text-green-600 sm:text-sm text-xs mt-1">{item.smallValue}</p>
             </div>
             <div
-              className="sm:w-10 sm:h-10 w-6 h-6 rounded inline-flex  items-center justify-center"
+              className="sm:w-11.5 sm:h-11.5 w-6 h-6 rounded-md inline-flex  items-center justify-center sm:p-2 p-1 "
               style={{
                 background: gradient,
                 backdropFilter: "blur(15.4px)",

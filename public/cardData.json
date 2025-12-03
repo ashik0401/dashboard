@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Premium Users",
+    "title": "Total User",
     "bigValue": "12,458",
     "midValue": "",
     "smallValue": "+3 this month",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "title": "Active Growth",
+    "title": "Active Host",
     "bigValue": "2.5M",
     "midValue": "",
     "smallValue": "+126k today",
@@ -26,7 +26,7 @@
   {
     "id": 4,
     "title": "Premium Users",
-    "bigValue": " ৳12.8M",
+    "bigValue": " 12.8M",
     "midValue": "",
     "smallValue": "",
     "image": "https://i.postimg.cc/BnjQwmjs/solar-crown-broken.png"

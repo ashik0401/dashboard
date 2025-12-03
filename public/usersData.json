@@ -17,7 +17,9 @@
     "audioLiveTime": "86h 0m 0s",
     "registrationTime": "2024-05-11 10:30 AM",
     "lastLoginTime": "2025-01-10 08:22 AM",
-    "image": "https://i.ibb.co.com/zVN11VJv/attack-on-titan-eren-yaeger.jpg"
+    "image": "https://i.ibb.co.com/zVN11VJv/attack-on-titan-eren-yaeger.jpg",
+    "rank": 5,
+    "rankImage": "https://i.ibb.co.com/HpdbkjZK/image-337-1.png"
   },
   {
     "id": "U1002",
@@ -37,7 +39,9 @@
     "audioLiveTime": "150h 0m 0s",
     "registrationTime": "2024-02-18 03:15 PM",
     "lastLoginTime": "2025-01-08 01:10 PM",
-    "image": "https://i.ibb.co.com/qSjbpDC/Portrait-mikasa.webp"
+    "image": "https://i.ibb.co.com/qSjbpDC/Portrait-mikasa.webp",
+    "rank": 8,
+    "rankImage": "https://i.ibb.co.com/sdwKnnzQ/image-340.png"
   },
   {
     "id": "U1003",
@@ -57,7 +61,9 @@
     "audioLiveTime": "205h 0m 0s",
     "registrationTime": "2023-11-28 09:45 AM",
     "lastLoginTime": "2025-01-12 04:50 PM",
-    "image": "https://i.ibb.co.com/zVN11VJv/attack-on-titan-eren-yaeger.jpg"
+    "image": "https://i.ibb.co.com/zVN11VJv/attack-on-titan-eren-yaeger.jpg",
+    "rank": 3,
+    "rankImage": "https://i.ibb.co.com/1Jt1WxnT/image-337.png"
   },
   {
     "id": "U1004",
@@ -77,7 +83,9 @@
     "audioLiveTime": "260h 0m 0s",
     "registrationTime": "2023-09-14 12:20 PM",
     "lastLoginTime": "2025-01-14 06:15 PM",
-    "image": "https://i.ibb.co.com/qSjbpDC/Portrait-mikasa.webp"
+    "image": "https://i.ibb.co.com/qSjbpDC/Portrait-mikasa.webp",
+    "rank": 1,
+    "rankImage": "https://i.ibb.co.com/HpdbkjZK/image-337-1.png"
   },
   {
     "id": "U1005",
@@ -97,6 +105,8 @@
     "audioLiveTime": "40h 0m 0s",
     "registrationTime": "2024-01-05 08:10 AM",
     "lastLoginTime": "2025-01-11 01:55 PM",
-    "image": "https://i.ibb.co.com/zVN11VJv/attack-on-titan-eren-yaeger.jpg"
+    "image": "https://i.ibb.co.com/zVN11VJv/attack-on-titan-eren-yaeger.jpg",
+    "rank": 6,
+    "rankImage": "https://i.ibb.co.com/sdwKnnzQ/image-340.png"
   }
 ]

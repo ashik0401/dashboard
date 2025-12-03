@@ -5,13 +5,13 @@ import UsersTable from "./UsersTable";
 
 const DashboardLayout = () => {
   return (
-    <div className="min-h-screen flex flex-col ">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 overflow-hidden md:pl-12.5 md:pr-14 p-2">
         <Sidebar />
-        <div className="flex-1 bg-gray-100 overflow-hidden">
+        <div className="flex-1 overflow-hidden">
           <DashboardCard />
-          <div className="p-2 sm:p-4">
+          <div className=" ">
             <UsersTable />
           </div>
         </div>

@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { CiFilter } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
@@ -23,60 +22,11 @@ const UsersTable = () => {
       u.id.toLowerCase().includes(search.toLowerCase())
   );
 
-  const getLevelStyle = (level) => {
-    const colors = [
-      "#F87171","#FB923C","#FACC15","#4ADE80","#2DD4BF","#60A5FA",
-      "#818CF8","#A78BFA","#F472B6","#A3A3A3","#84CC16","#F43F5E"
-    ];
-    const color = colors[(level - 1) % colors.length];
-    if (level > 12) {
-      return {
-        background: `linear-gradient(135deg, ${color}, ${shadeColor(color, -20)})`,
-        color: "white",
-        fontWeight: "bold",
-        borderRadius: "9999px",
-        padding: "0.35rem 0.9rem",
-        display: "inline-block",
-        textAlign: "center",
-        boxShadow: "0 2px 2px rgba(0,0,0,0.3)",
-      };
-    }
-    return {
-      backgroundColor: color,
-      color: "white",
-      fontWeight: "600",
-      borderRadius: "9999px",
-      padding: "0.25rem 0.75rem",
-      display: "inline-block",
-      textAlign: "center",
-    };
-  };
-
-  function shadeColor(color, percent) {
-    let f = parseInt(color.slice(1), 16),
-      t = percent < 0 ? 0 : 255,
-      p = Math.abs(percent) / 100,
-      R = f >> 16,
-      G = (f >> 8) & 0x00ff,
-      B = f & 0x0000ff;
-    return (
-      "#" +
-      (
-        0x1000000 +
-        (Math.round((t - R) * p) + R) * 0x10000 +
-        (Math.round((t - G) * p) + G) * 0x100 +
-        (Math.round((t - B) * p) + B)
-      )
-        .toString(16)
-        .slice(1)
-    );
-  }
-
   const getTypeStyle = (type) => {
     if (type === "Normal")
-      return "px-2 py-1 rounded-full bg-green-200 text-green-600 text-xs sm:text-sm";
+      return "px-3 py-1 w-[38px] h-[15px] rounded-full bg-green-300 text-green-900 text-[10px]";
     if (type === "Host")
-      return "px-2 py-1 rounded-full bg-gradient-to-r from-[#EB57FF] to-[#3325C9] text-white text-xs sm:text-sm";
+      return "px-5 py-1 w-[38px] h-[15px] rounded-full bg-gradient-to-r from-[#EB57FF] to-[#3325C9] text-white text-[10px]";
   };
 
   const formatTime = (timeStr) => {
@@ -86,10 +36,56 @@ const UsersTable = () => {
     return `${hours}h ${minutes}m ${seconds}s`;
   };
 
+  const shadeColor = (color, percent) => {
+    let R = parseInt(color.substring(1, 3), 16);
+    let G = parseInt(color.substring(3, 5), 16);
+    let B = parseInt(color.substring(5, 7), 16);
+    R = Math.min(255, Math.floor(R + (255 - R) * (percent / 100)));
+    G = Math.min(255, Math.floor(G + (255 - G) * (percent / 100)));
+    B = Math.min(255, Math.floor(B + (255 - B) * (percent / 100)));
+    return `rgb(${R},${G},${B})`;
+  };
+
+  const getLevelStyle = (level) => {
+    const colors = [
+      "#FFD700","#FFB14F","#FF8C42","#FF7043","#FF4C4C","#FF6F91",
+      "#FF85A1","#FF99AC","#FFB6B9","#FFCBD7","#FFC0CB","#DA70D6",
+      "#BA55D3","#9932CC","#8A2BE2","#7B68EE","#6A5ACD","#483D8B",
+      "#4169E1","#1E90FF",
+    ];
+    const color = colors[level - 1] || "#AAAAAA";
+    if (level >= 12) {
+      const lightColor = shadeColor(color, 20);
+      return {
+        padding: "4px 10px",
+        borderRadius: "9999px",
+        fontSize: "10px",
+        fontWeight: "500",
+        color: "white",
+        display: "flex",
+        alignItems: "center",
+        gap: "4px",
+        background: `linear-gradient(to bottom, ${lightColor}, ${color})`,
+        height: "20px",
+      };
+    } else {
+      return {
+        padding: "2px 10px",
+        borderRadius: "9999px",
+        fontSize: "10px",
+        fontWeight: "500",
+        color: "white",
+        display: "inline-block",
+        backgroundColor: color,
+        height: "17px",
+      };
+    }
+  };
+
   return (
-    <div className="w-full">
-      <div className="flex  sm:flex-row items-center justify-between mb-3 sm:mb-6 gap-2 sm:gap-3">
-        <div className="flex items-center bg-white px-2 py-1 sm:px-3 sm:py-2 rounded-full shadow w-full sm:w-8/12">
+    <div className="w-full my-6">
+      <div className="flex sm:flex-row items-center justify-between sm:mb-6 gap-2 sm:gap-3 pb-6">
+        <div className="flex items-center bg-white px-3 py-1.5 sm:px-3 sm:py-2 rounded-md border border-[#BBBBBB] w-full sm:[839px] sm:h-[41px]">
           <FaSearch className="text-gray-500 text-sm sm:text-base" />
           <input
             type="text"
@@ -99,62 +95,64 @@ const UsersTable = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className="flex gap-2 items-center  w-full sm:w-auto">
-          <button className="flex items-center gap-1 px-2 py-1 sm:px-4 sm:py-2 rounded-md border border-gray-400 text-xs sm:text-base w-full sm:w-auto justify-center">
-            <CiFilter /> Filter
+        <div className="flex gap-2 items-center w-full sm:w-auto">
+          <button className="flex items-center gap-1 px-2 py-1 sm:px-4.5 sm:py-2 rounded-md border border-[#BBBBBB] text-xs sm:text-lg w-full sm:w-[119px] sm:h-10 justify-center sm:font-medium">
+            <CiFilter size={24} /> Filter
           </button>
-          <button className="flex items-center gap-1 px-2 py-1 sm:px-4 sm:py-2 rounded-md text-white bg-linear-to-r from-[#6DA5FF] to-[#F576D6] text-xs sm:text-base w-full sm:w-auto justify-center">
+          <button className="flex items-center gap-1 px-2 py-1 sm:px-4.5 sm:py-2 rounded-md text-white bg-linear-to-r from-[#6DA5FF] to-[#F576D6] text-xs sm:text-lg w-full sm:w-[127px] h-10 font-medium justify-center">
             Add User
           </button>
         </div>
       </div>
 
-      <div className="overflow-x-auto w-full">
-        <table className="min-w-[800px] w-full text-xs sm:text-sm">
-          <thead>
-            <tr className="text-left text-gray-600">
-              <th className="pb-2 px-2">User ID</th>
+      <div className="overflow-x-auto w-full shadow shadow-[#2B2B2B17] border border-white/35 rounded-xl py-6">
+        <table className="min-w-[800px] w-full whitespace-nowrap">
+          <thead className="border-b border-[#DFDFDF]">
+            <tr className="text-left text-[#535353] text-lg">
+              <th className="pb-2 px-9">User ID</th>
               <th className="pb-2 px-2">Name</th>
               <th className="pb-2 px-2">Type</th>
-              <th className="pb-2 px-2">Level</th>
+              <th className="pb-2 px-2 text-center">Level</th>
               <th className="pb-2 px-2">Diamonds</th>
               <th className="pb-2 px-2">Beans</th>
               <th className="pb-2 px-2">Location</th>
               <th className="pb-2 px-2">Status</th>
-              <th className="pb-2 px-2">Action</th>
+              <th className="pb-2 px-2 text-center">Action</th>
             </tr>
           </thead>
           <tbody>
             {filtered.map((u) => (
-              <tr key={u.id} className="border-b border-gray-100">
-                <td className="py-2 px-2">{u.id}</td>
-                <td className="flex items-center gap-2 px-2">{u.name}</td>
-                <td className="px-2">
+              <tr key={u.id} className="border-b border-[#DFDFDF] text-lg">
+                <td className="py-4 px-9 font-medium">{u.id}</td>
+                <td className="flex text-lg items-center gap-2 px-2 py-4">{u.name}</td>
+                <td className="px-2 py-4">
                   <span className={getTypeStyle(u.type)}>{u.type}</span>
                 </td>
-                <td className="px-2">
-                  <span style={getLevelStyle(u.level)}>Lv-{u.level}</span>
+                <td className="py-4 text-center text-[10px] font-medium">
+                  <span style={getLevelStyle(u.level)}>
+                    {u.level >= 12 && u.rankImage && (
+                      <img src={u.rankImage} alt="rank" className="w-4 h-4 rounded-full" />
+                    )}
+                    Lv{u.level}
+                  </span>
                 </td>
-                <td className="px-2">{u.diamonds}</td>
-                <td className="px-2">{u.beans}</td>
-                <td className="px-2">{u.country}</td>
-                <td className="px-2">
+                <td className="px-2 py-4 text-lg">{u.diamonds}</td>
+                <td className="px-2 py-4 text-lg">{u.beans}</td>
+                <td className="px-2 py-4 text-lg">{u.country}</td>
+                <td className="px-2 py-4">
                   {u.status === "active" ? (
-                    <span className="px-2 py-1 rounded-full bg-green-200 text-green-600 text-xs sm:text-sm">
+                    <span className="px-3 py-1 w-[38px] h-[15px] rounded-full bg-green-200 text-green-800 text-[10px]">
                       Active
                     </span>
                   ) : (
-                    <span className="px-2 py-1 rounded-full bg-red-200 text-red-600 text-xs sm:text-sm">
+                    <span className="px-3 py-1 w-[38px] h-[15px] rounded-full bg-red-200 text-red-600 text-[10px]">
                       Suspended
                     </span>
                   )}
                 </td>
-                <td className="flex items-center gap-2 text-xl py-2 px-2">
-                  <button
-                    className="text-black cursor-pointer"
-                    onClick={() => setSelectedUser(u)}
-                  >
-                    <GoEye />
+                <td className="space-x-2.5">
+                  <button className="text-black cursor-pointer" onClick={() => setSelectedUser(u)}>
+                    <GoEye size={20} />
                   </button>
                   <button className="text-red-600 cursor-pointer">
                     <img src={Error} alt="" className="w-5 h-5" />
@@ -171,29 +169,18 @@ const UsersTable = () => {
 
       {selectedUser && (
         <div className="fixed inset-0 bg-black/30 flex justify-center items-center z-50 p-2 sm:p-4 ">
-          <div className="bg-white rounded-lg p-4 sm:p-6 w-full max-w-md relative overflow-y-auto max-h-[90vh] ">
-            <button
-              className="absolute top-2 right-2 text-gray-500 font-bold text-sm sm:text-base"
-              onClick={() => setSelectedUser(null)}
-            >
-              ✕
-            </button>
+          <div className="bg-white rounded-xl p-4 sm:px-14.5 w-[640px] sm:pt-9 relative overflow-y-auto h-[763px] ">
+            <button className="absolute top-2 right-2 text-gray-500 font-bold text-sm sm:text-base" onClick={() => setSelectedUser(null)}>✕</button>
             <div className="flex items-center gap-3 mb-3">
-              <h2 className="text-lg sm:text-xl font-bold text-center w-full">
-                {selectedUser.name}
-              </h2>
+              <h2 className="text-lg sm:text-3xl font-bold text-center w-full pb-5">{selectedUser.name}</h2>
             </div>
-            <div className="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+            <div className="grid grid-cols-2 gap-2 text-xs sm:text-xl text-[#181717] font-medium space-y-4">
               <span>ID :</span>
               <span>{selectedUser.id}</span>
               <span className="flex items-center">User :</span>
               <span className="flex items-center gap-2">
                 {selectedUser.image && (
-                  <img
-                    src={selectedUser.image}
-                    alt={selectedUser.name}
-                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
-                  />
+                  <img src={selectedUser.image} alt={selectedUser.name} className="w-8 h-8 sm:w-[55px] sm:h-[55px] rounded-full object-cover" />
                 )}
                 {selectedUser.name}
               </span>
