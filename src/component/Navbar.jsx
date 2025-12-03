@@ -3,7 +3,7 @@ import { RxExit } from "react-icons/rx";
 import Logo from "../assets/Rectangle432.png";
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-between  mb-10 shadow-lg shadow-gray-100 lg:pl-12 lg:pt-15 lg:pb-4 lg:pr-4 z-100 py-3 px-2">
+    <div className="flex items-center justify-between  mb-10 shadow shadow-[rgba(0, 0, 0, 0.06)] lg:pl-12 lg:pt-15 lg:pb-4 lg:pr-4 z-100 py-3 px-2">
       <div className="flex gap-3 items-center ">
         <img src={Logo} alt="Logo" />
         <div className="hidden sm:block">
