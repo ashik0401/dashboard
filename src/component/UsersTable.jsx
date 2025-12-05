@@ -151,7 +151,7 @@ const UsersTable = () => {
                     </span>
                   )}
                 </td>
-                <td className="space-x-2.5">
+                <td className="space-x-2.5 text-center">
                   <button className="text-black cursor-pointer" onClick={() => setSelectedUser(u)}>
                     <GoEye size={20} />
                   </button>
